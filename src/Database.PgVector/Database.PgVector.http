@@ -1,0 +1,6 @@
+@Database.PgVector_HostAddress = http://localhost:5222
+
+GET {{Database.PgVector_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

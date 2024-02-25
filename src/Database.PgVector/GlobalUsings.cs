@@ -1,0 +1,12 @@
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Microsoft.Extensions.Options;
+global using Database.PgVector;
+global using Database.PgVector.Infrastructure.EntityConfigurations;
+global using Database.PgVector.Infrastructure;
+global using Database.PgVector.Model;
+global using Database.PgVector.Infrastructure.Exceptions;
+global using Database.PgVector.Extensions;
+global using Database.PgVector.Services;
+global using Database.PgVector.Apis;
+global using Npgsql;

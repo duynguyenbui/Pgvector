@@ -1,0 +1,22 @@
+﻿services:
+  pgvector:
+    image: ankane/pgvector:latest
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=postgrespw
+  server:
+    build:
+      context: .
+      dockerfile: src/Database.PgVector/Dockerfile
+    ports:
+      - 5222:8080
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__CatalogDB=Host=pgvector;Port=5432;Database=CatalogDB;Username=postgres;Password=postgrespw
+      - AI__EmbeddingAI__Endpoint=<Your_Endpoint_Embedding_AI>
+      - AI__EmbeddingAI__AuthorizationToken=<Your_Token_Embedding_AI>
+      - CatalogOptions_PicBaseUrl=http://localhost:5222/api/v1/catalog/items/[0]/pic/
+      - CatalogOptions_UseCustomizationData=false
+    depends_on: 
+      - pgvector
